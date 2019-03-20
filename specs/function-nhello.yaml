@@ -1,0 +1,50 @@
+include:
+- hello.js
+kind: ArchiveUploadSpec
+name: hello-js-maV3
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: hello-js-cpdz
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+    type: url
+    url: archive://hello-js-maV3
+  environment:
+    name: nodejs
+    namespace: default
+  source:
+    checksum: {}
+status:
+  buildstatus: none
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: nhello
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: newdeploy
+      MaxScale: 4
+      MinScale: 1
+      TargetCPUPercent: 80
+    StrategyType: execution
+  configmaps: null
+  environment:
+    name: nodejs
+    namespace: default
+  package:
+    packageref:
+      name: hello-js-cpdz
+      namespace: default
+  resources: {}
+  secrets: null
