@@ -1,11 +1,15 @@
 FROM golang:1.10.2
 
+LABEL "com.github.actions.name"="fission-action"
+LABEL "com.github.actions.description"="A action for Fission functions"
+LABEL "com.github.actions.color"="gray-dark"
+
 LABEL "name"="fission-apply-action"
 LABEL "maintainer"="Vishal Biyani <vishal@infracloud.io>"
 LABEL "version"="0.1.0"
 
-LABEL "repository"="http://github.com/fission/fission-cd"
-LABEL "homepage"="http://github.com/fission/fission-cd"
+LABEL "repository"="http://github.com/fission/action"
+LABEL "homepage"="http://github.com/fission/fission"
 
 ARG K8S_VERSION=v1.11.5
 
