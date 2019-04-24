@@ -3,6 +3,7 @@ FROM golang:1.10.2
 LABEL "com.github.actions.name"="fission-action"
 LABEL "com.github.actions.description"="A action for Fission functions"
 LABEL "com.github.actions.color"="gray-dark"
+LABEL "com.github.actions.icon"="code"
 
 LABEL "name"="fission-apply-action"
 LABEL "maintainer"="Vishal Biyani <vishal@infracloud.io>"
